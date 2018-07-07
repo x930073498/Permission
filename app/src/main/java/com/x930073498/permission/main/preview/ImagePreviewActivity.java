@@ -39,9 +39,10 @@ public class ImagePreviewActivity extends AppCompatActivity implements ImagePrev
         binding.image.setBackgroundColor(Color.BLACK);
         ARouter.getInstance().inject(this);
         Glide.with(this).load(url).into(binding.image);
-        binding.image.postDelayed(this::testData,2000);
+        binding.image.postDelayed(this::testData, 2000);
     }
-    @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE,impl = ImagePreviewActivityProxy.class)
+
+    @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE, impl = ImagePreviewActivityProxy.class)
     public void testData() {
         Log.d(TAG, "testData: ");
     }

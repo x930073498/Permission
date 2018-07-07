@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.IVie
     public void onGranted() {
         Log.d(TAG, "onGranted: ");
     }
+
     @PermissionsGranted(permission = Manifest.permission.READ_PHONE_STATE)
-    public void onStateGranted(){
+    public void onStateGranted() {
         Log.d(TAG, "onStateGranted: ");
     }
-    @PermissionsDenied(permission=Manifest.permission.READ_PHONE_STATE)
-    public void onStateDenied(){
+
+    @PermissionsDenied(permission = Manifest.permission.READ_PHONE_STATE)
+    public void onStateDenied() {
         Log.d(TAG, "onStateDenied: ");
     }
 
