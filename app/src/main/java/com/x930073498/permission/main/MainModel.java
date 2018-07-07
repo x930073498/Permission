@@ -10,12 +10,12 @@ import com.bumptech.glide.request.RequestOptions;
 import com.x930073498.baseitemlib.BaseItem;
 import com.x930073498.baseitemlib.BaseItemWrapper;
 import com.x930073498.permission.HostType;
-import com.x930073498.permission.IntentKey;
-import com.x930073498.permission.R;
+import com.x930073498.IntentKey;
+import com.x930073498.R;
 import com.x930073498.permission.RequestManager;
-import com.x930073498.permission.Router;
+import com.x930073498.Router;
 import com.x930073498.permission.base.RxListener;
-import com.x930073498.permission.databinding.LayoutItemImageBinding;
+import com.x930073498.databinding.LayoutItemImageBinding;
 
 import java.util.List;
 

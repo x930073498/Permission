@@ -8,7 +8,7 @@ package com.x930073498.permission;
  * @since 2016-05-15
  */
 public interface PermissionListener {
-    void permissionGranted(String[] permissions);
+    void permissionGranted(String[] permissions,int[] requestCodes);
 
-    void permissionDenied(String[] permissions);
+    void permissionDenied(String[] permissions,int[] requestCodes);
 }

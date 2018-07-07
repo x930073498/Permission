@@ -71,7 +71,6 @@ public class CheckPermission {
         }
     }
 
-    private Handler mHandler = new Handler(Looper.getMainLooper());
 
     private void requestPermissions(PermissionRequestWrapper permissionRequestWrapper) {
         final PermissionItem item = permissionRequestWrapper.permissionItem;
@@ -82,6 +81,7 @@ public class CheckPermission {
         } else {
             ShadowPermissionActivity.start(mContext
                     , item.permissions
+                    ,item.requestCodes
                     , item.rationalMessage
                     , item.rationalButton
                     , item.needGotoSetting
@@ -96,7 +96,7 @@ public class CheckPermission {
         Assert.assertNotNull(item);
 
         if (listener != null) {
-            listener.permissionGranted(item.permissions);
+            listener.permissionGranted(item.permissions,item.requestCodes);
         }
 
         mOnPermissionRequestFinishedListener.onPermissionRequestFinishedAndCheckNext(item.permissions);
@@ -106,7 +106,7 @@ public class CheckPermission {
         Assert.assertNotNull(item);
 
         if (listener != null) {
-            listener.permissionDenied(item.permissions);
+            listener.permissionDenied(item.permissions,item.requestCodes);
         }
 
         mOnPermissionRequestFinishedListener.onPermissionRequestFinishedAndCheckNext(item.permissions);

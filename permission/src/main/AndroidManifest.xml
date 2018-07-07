@@ -1,2 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.x930073498.permission" />
+    package="com.x930073498.permission"
+
+    >
+
+    <application>
+        <activity
+            android:name=".ShadowPermissionActivity"
+            android:launchMode="singleTop" />
+    </application>
+
+</manifest>

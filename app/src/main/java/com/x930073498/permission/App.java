@@ -12,6 +12,7 @@ public class App extends Application {
             ARouter.openDebug();
             ARouter.openLog();
         }
+        PermissionCheckSDK.init(this);
         ARouter.init(this);
     }
 }

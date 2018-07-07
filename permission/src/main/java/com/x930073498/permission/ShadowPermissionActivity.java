@@ -46,10 +46,12 @@ public class ShadowPermissionActivity extends AppCompatActivity {
     public static final String EXTRA_SETTING_BUTTON_TEXT = "setting_button_text";
     public static final String EXTRA_RATIONALE_CONFIRM_TEXT = "rationale_confirm_text";
     public static final String EXTRA_DENIED_DIALOG_CLOSE_TEXT = "denied_dialog_close_text";
+    public static final String EXTRA_REQUEST_CODE = "request_code";
 
     String rationaleMessage;
     String denyMessage;
     String[] permissions;
+    int[] requestCodes;
     boolean hasRequestedSystemAlertWindow = false;
     String permissionSystemAlertWindow;
     boolean hasRequestedWriteSettings = false;
@@ -85,7 +87,7 @@ public class ShadowPermissionActivity extends AppCompatActivity {
      * @param deniedButton       denied button text
      * @param permissionListener permission listener
      */
-    public static void start(Context context, String[] permissions, String rationalMessage, String rationalButton, boolean needSettingButton
+    public static void start(Context context, String[] permissions, int[] requestCodes, String rationalMessage, String rationalButton, boolean needSettingButton
             , String settingTxt, String deniedMessage, String deniedButton, PermissionListener permissionListener) {
         setPermissionListener(permissionListener);
 
@@ -97,6 +99,7 @@ public class ShadowPermissionActivity extends AppCompatActivity {
         intent.putExtra(ShadowPermissionActivity.EXTRA_SETTING_BUTTON_TEXT, settingTxt);
         intent.putExtra(ShadowPermissionActivity.EXTRA_DENY_MESSAGE, deniedMessage);
         intent.putExtra(ShadowPermissionActivity.EXTRA_DENIED_DIALOG_CLOSE_TEXT, deniedButton);
+        intent.putExtra(ShadowPermissionActivity.EXTRA_REQUEST_CODE, requestCodes);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         context.startActivity(intent);
@@ -124,20 +127,23 @@ public class ShadowPermissionActivity extends AppCompatActivity {
         packageName = getPackageName();
 
         Bundle bundle = getIntent().getExtras();
-        permissions = bundle.getStringArray(EXTRA_PERMISSIONS);
-        rationaleMessage = bundle.getString(EXTRA_RATIONALE_MESSAGE);
-        denyMessage = bundle.getString(EXTRA_DENY_MESSAGE);
-        hasSettingButton = bundle.getBoolean(EXTRA_SETTING_BUTTON, false);
-        settingButtonText = bundle.getString(EXTRA_SETTING_BUTTON_TEXT, "设置");
-        rationaleConfirmText = bundle.getString(EXTRA_RATIONALE_CONFIRM_TEXT, "确定");
-        deniedCloseButtonText = bundle.getString(EXTRA_DENIED_DIALOG_CLOSE_TEXT, "确定");
+        if (bundle != null) {
+            permissions = bundle.getStringArray(EXTRA_PERMISSIONS);
+            requestCodes = bundle.getIntArray(EXTRA_REQUEST_CODE);
+            rationaleMessage = bundle.getString(EXTRA_RATIONALE_MESSAGE);
+            denyMessage = bundle.getString(EXTRA_DENY_MESSAGE);
+            hasSettingButton = bundle.getBoolean(EXTRA_SETTING_BUTTON, false);
+            settingButtonText = bundle.getString(EXTRA_SETTING_BUTTON_TEXT, "设置");
+            rationaleConfirmText = bundle.getString(EXTRA_RATIONALE_CONFIRM_TEXT, "确定");
+            deniedCloseButtonText = bundle.getString(EXTRA_DENIED_DIALOG_CLOSE_TEXT, "确定");
+        }
 
         checkPermissions(false);
     }
 
     private void permissionGranted(String[] permissions) {
         if (sPermissionListener != null) {
-            sPermissionListener.permissionGranted(permissions);
+            sPermissionListener.permissionGranted(permissions, requestCodes);
             sPermissionListener = null;
         }
 
@@ -150,7 +156,7 @@ public class ShadowPermissionActivity extends AppCompatActivity {
     private void permissionDenied(List<String> deniedpermissions) {
         if (sPermissionListener != null) {
             if (deniedpermissions != null && !deniedpermissions.isEmpty())
-                sPermissionListener.permissionDenied(deniedpermissions.toArray(new String[deniedpermissions.size()]));
+                sPermissionListener.permissionDenied(deniedpermissions.toArray(new String[deniedpermissions.size()]), requestCodes);
             sPermissionListener = null;
         }
 

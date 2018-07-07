@@ -1,11 +1,9 @@
 /*
  * CheckPermissionItem      2016-05-16
  * Copyright (c) 2016 hujiang Co.Ltd. All right reserved(http://www.hujiang.com).
- * 
+ *
  */
 package com.x930073498.permission;
-
-import android.text.TextUtils;
 
 import java.io.Serializable;
 
@@ -18,6 +16,7 @@ import java.io.Serializable;
  */
 public class PermissionItem implements Serializable {
 
+    public int[] requestCodes;
     public String[] permissions;
     public String rationalMessage;
     public String rationalButton;
@@ -27,12 +26,17 @@ public class PermissionItem implements Serializable {
     public boolean needGotoSetting;
     public boolean runIgnorePermission;
 
-    public PermissionItem(String...permissions) {
+    public PermissionItem(String... permissions) {
         if (permissions == null || permissions.length <= 0) {
             throw new IllegalArgumentException("permissions must have one content at least");
         }
 
         this.permissions = permissions;
+    }
+
+    public PermissionItem requestCode(int... requestCode) {
+        this.requestCodes = requestCode;
+        return this;
     }
 
     public PermissionItem rationalMessage(String rationalMessage) {

@@ -12,11 +12,12 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
-import com.x930073498.permission.R;
-import com.x930073498.permission.databinding.ActivityImagePreviewBinding;
+import com.x930073498.annotations.PermissionsDenied;
+import com.x930073498.R;
+import com.x930073498.databinding.ActivityImagePreviewBinding;
 
-import static com.x930073498.permission.IntentKey.KEY_FIRST;
-import static com.x930073498.permission.Router.PATH_PREVIEW;
+import static com.x930073498.IntentKey.KEY_FIRST;
+import static com.x930073498.Router.PATH_PREVIEW;
 
 
 @Route(path = PATH_PREVIEW)
