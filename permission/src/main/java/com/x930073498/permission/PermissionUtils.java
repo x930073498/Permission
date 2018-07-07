@@ -12,14 +12,6 @@ import android.support.v4.content.PermissionChecker;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * permission utils
- *  <br>
- * modify from https://github.com/ParkSangGwon/TedPermission
- *
- * @author simon
- * @since 2016-05-15
- */
 final public class PermissionUtils {
     private PermissionUtils() {
     }

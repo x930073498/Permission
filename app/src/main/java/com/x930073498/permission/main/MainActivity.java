@@ -10,16 +10,15 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.lain.loadmorehelper.LoadMoreHelper;
 import com.lain.loadmorehelper.PageData;
+import com.x930073498.R;
 import com.x930073498.annotations.NeedPermission;
 import com.x930073498.annotations.PermissionsDenied;
 import com.x930073498.annotations.PermissionsGranted;
 import com.x930073498.baseitemlib.BaseAdapter;
 import com.x930073498.baseitemlib.BaseItem;
-import com.x930073498.R;
 import com.x930073498.databinding.ActivityMainBinding;
 
 import java.util.List;

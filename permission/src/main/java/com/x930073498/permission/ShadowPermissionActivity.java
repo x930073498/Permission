@@ -24,14 +24,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * to dispatcher permission
- * <br>
- * modify from https://github.com/ParkSangGwon/TedPermission
- *
- * @author simon
- * @since 2016-05-15
- */
 public class ShadowPermissionActivity extends AppCompatActivity {
 
     public static final int REQ_CODE_PERMISSION_REQUEST = 110;

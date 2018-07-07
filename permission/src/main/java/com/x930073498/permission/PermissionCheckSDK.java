@@ -7,14 +7,6 @@ package com.x930073498.permission;
 
 import android.app.Application;
 
-
-/**
- * class description here
- *
- * @author simon
- * @version 1.0.0
- * @since 2016-05-16
- */
 public class PermissionCheckSDK {
 
     public static Application application;

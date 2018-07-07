@@ -27,13 +27,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-/**
- * class description here
- *
- * @author simon
- * @version 1.0.0
- * @since 2016-05-11
- */
 @Aspect
 public class PermissionAspect {
 

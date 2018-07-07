@@ -12,13 +12,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * to mark the class type or method that needs runtime permissions.Just used on Activity class, and all void returned methods of any class.
- *
- * @author simon
- * @version 1.0.0
- * @since 2016-05-12
- */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NeedPermission {

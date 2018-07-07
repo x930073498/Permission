@@ -7,13 +7,6 @@ package com.x930073498.permission;
 
 import java.io.Serializable;
 
-/**
- * class description here
- *
- * @author simon
- * @version 1.0.0
- * @since 2016-05-16
- */
 public class PermissionItem implements Serializable {
 
     public int[] requestCodes;

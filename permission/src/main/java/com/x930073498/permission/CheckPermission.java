@@ -10,14 +10,6 @@ import junit.framework.Assert;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/**
- * check permission
- * <br>
- * modify from https://github.com/ParkSangGwon/TedPermission
- *
- * @author simon
- * @since 2016-05-15
- */
 public class CheckPermission {
     private static final String TAG = "CheckPermission";
 
