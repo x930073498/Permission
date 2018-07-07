@@ -72,7 +72,7 @@ public class PermissionAspect {
                 joinPoint.proceed();
                 return;
             }
-            final PermissionsProxy proxy = getProxy(calculateProxyName(targetName),needPermission.impl());
+            final PermissionsProxy proxy = getProxy(calculateProxyName(targetName), needPermission.impl());
             String[] permissions = needPermission.permissions();
             if (permissions.length > 0) {
                 Context context = PermissionCheckSDK.application;
@@ -264,12 +264,16 @@ public class PermissionAspect {
     }
 
     private static PermissionsProxy getProxy(String name, Class<? extends PermissionsProxy> impl) {
+
+        boolean useName = !TextUtils.isEmpty(name) && impl == PermissionsProxy.class;
+
         try {
-            Class clazz = impl == PermissionsProxy.class ? Class.forName(name) : impl;
+            Class clazz = useName ? Class.forName(name) : impl;
+            clazz = clazz == null ? impl : clazz;
+            if (clazz.isInterface()) return null;
             return (PermissionsProxy) clazz.newInstance();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
+            return getProxy("", impl);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
