@@ -164,9 +164,9 @@ public class AnnotationProcessor extends AbstractProcessor {
     }
 
     private void processObserveAnnotated(Element element, Class<? extends Annotation> annotation) {
-        final ClassName classFullName = ClassName.get((TypeElement) element); //com.github.florent37.sample.TutoAndroidFrance
+        final ClassName classFullName = ClassName.get((TypeElement) element); 
         if (!typeHolders.containsKey(classFullName)) {
-            final String className = element.getSimpleName().toString(); //TutoAndroidFrance
+            final String className = element.getSimpleName().toString(); 
 
             final TypeHolder observeHolder = new TypeHolder(element, classFullName, className);
 
