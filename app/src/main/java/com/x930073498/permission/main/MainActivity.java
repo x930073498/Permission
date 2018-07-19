@@ -56,6 +56,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.IVie
         Log.d(TAG, "onStateDenied: ");
     }
 
+    @NeedPermission(permissions = Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    public void getData() {
+        Log.d(TAG, "getData: enter this line");
+        testData();
+    }
+
+    @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE)
+    public void testData() {
+        Log.d(TAG, "testData: ");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -67,16 +78,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.IVie
         binding.recycler.postDelayed(this::getData, 2000);
     }
 
-    @NeedPermission(permissions = Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    public void getData() {
-        Log.d(TAG, "getData: enter this line");
-        testData();
-    }
 
-    @NeedPermission(permissions = Manifest.permission.READ_PHONE_STATE)
-    public void testData() {
-        Log.d(TAG, "testData: ");
-    }
 
     @Override
     public void setRecycler() {
