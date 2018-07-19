@@ -16,7 +16,6 @@ public class ProxyUtils {
         if (index >= 0) {
             return true;
         }
-        System.out.println("enter this line 4");
         if (isAccurate) {
             return Arrays.equals(target, src);
         }
