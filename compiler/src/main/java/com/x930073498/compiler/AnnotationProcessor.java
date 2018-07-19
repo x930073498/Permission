@@ -168,30 +168,30 @@ public class AnnotationProcessor extends AbstractProcessor {
         if (!typeHolders.containsKey(classFullName)) {
             final String className = element.getSimpleName().toString(); 
 
-            final TypeHolder observeHolder = new TypeHolder(element, classFullName, className);
+            final TypeHolder typeHolder = new TypeHolder(element, classFullName, className);
 
             for (Element method : processUtils.getMethods(element)) {
                 Annotation a;
                 if ((a = method.getAnnotation(annotation)) != null) {
                     if (a instanceof PermissionsGranted) {
-                        observeHolder.addMethod(method, annotation, ((PermissionsGranted) a).permission(), ((PermissionsGranted) a).requestCode(), ((PermissionsGranted) a).isAccurate());
+                        typeHolder.addMethod(method, annotation, ((PermissionsGranted) a).permission(), ((PermissionsGranted) a).requestCode(), ((PermissionsGranted) a).isAccurate());
                     } else if (a instanceof PermissionsDenied) {
-                        observeHolder.addMethod(method, annotation, ((PermissionsDenied) a).permission(), ((PermissionsDenied) a).requestCode(), ((PermissionsDenied) a).isAccurate());
+                        typeHolder.addMethod(method, annotation, ((PermissionsDenied) a).permission(), ((PermissionsDenied) a).requestCode(), ((PermissionsDenied) a).isAccurate());
                     }
 
                 }
             }
 
-            typeHolders.put(classFullName, observeHolder);
+            typeHolders.put(classFullName, typeHolder);
         } else {
-            final TypeHolder observeHolder = typeHolders.get(classFullName);
+            final TypeHolder typeHolder = typeHolders.get(classFullName);
             for (Element method : processUtils.getMethods(element)) {
                 Annotation a;
                 if ((a = method.getAnnotation(annotation)) != null) {
                     if (a instanceof PermissionsGranted) {
-                        observeHolder.addMethod(method, annotation, ((PermissionsGranted) a).permission(), ((PermissionsGranted) a).requestCode(), ((PermissionsGranted) a).isAccurate());
+                        typeHolder.addMethod(method, annotation, ((PermissionsGranted) a).permission(), ((PermissionsGranted) a).requestCode(), ((PermissionsGranted) a).isAccurate());
                     } else if (a instanceof PermissionsDenied) {
-                        observeHolder.addMethod(method, annotation, ((PermissionsDenied) a).permission(), ((PermissionsDenied) a).requestCode(), ((PermissionsDenied) a).isAccurate());
+                        typeHolder.addMethod(method, annotation, ((PermissionsDenied) a).permission(), ((PermissionsDenied) a).requestCode(), ((PermissionsDenied) a).isAccurate());
                     }
                 }
             }
