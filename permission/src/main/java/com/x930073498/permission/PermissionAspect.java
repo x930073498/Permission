@@ -15,7 +15,6 @@ import android.util.Log;
 
 import com.x930073498.annotations.NeedPermission;
 
-import junit.framework.Assert;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -207,7 +206,6 @@ public class PermissionAspect {
     private static void processCheckPermissionOnActivity(final Activity target, String[] permissions, int[] requestCodes, String rationalMessage, String rationalButton
             , String deniedMessage, String deniedButton, String settingText, boolean needGotoSetting, final boolean runIgnorePermission, final PermissionsProxy proxy) {
 
-        Assert.assertTrue(permissions != null && permissions.length > 0);
 
         final PermissionItem permissionItem = new PermissionItem(permissions);
         permissionItem.requestCodes = requestCodes;

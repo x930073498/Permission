@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import junit.framework.Assert;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -85,7 +84,6 @@ public class CheckPermission {
     }
 
     private void onPermissionGranted(PermissionItem item, PermissionListener listener) {
-        Assert.assertNotNull(item);
 
         if (listener != null) {
             listener.permissionGranted(item.permissions,item.requestCodes);
@@ -95,7 +93,6 @@ public class CheckPermission {
     }
 
     private void onPermissionDenied(PermissionItem item, PermissionListener listener) {
-        Assert.assertNotNull(item);
 
         if (listener != null) {
             listener.permissionDenied(item.permissions,item.requestCodes);
