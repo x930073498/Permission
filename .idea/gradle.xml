@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compiler" />
-            <option value="$PROJECT_DIR$/load" />
             <option value="$PROJECT_DIR$/permission" />
           </set>
         </option>
