@@ -1,3 +1,1 @@
-include ':app', ':permission',
-//        ':load',
-        ':common', ':compiler', ':annotations'
+include ':app', ':permission', ':common', ':compiler', ':annotations'
