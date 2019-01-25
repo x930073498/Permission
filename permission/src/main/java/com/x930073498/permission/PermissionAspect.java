@@ -278,7 +278,7 @@ public class PermissionAspect {
     }
 
     private static String calculateProxyName(String targetName) {
-        return String.format(Locale.CHINA, "%s%s", targetName, "$$Proxy");
+        return String.format(Locale.getDefault(), "%s%s", targetName, "$$Proxy");
     }
 
 }

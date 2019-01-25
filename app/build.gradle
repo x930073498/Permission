@@ -41,5 +41,8 @@ dependencies {
     implementation("com.android.support:support-v4:28.0.0")
     implementation 'com.android.support:appcompat-v7:28.0.0'
     api project(":permission")
+    annotationProcessor project(':compiler')
+//    implementation 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+//    implementation 'org.jfrog.buildinfo:build-info-extractor-gradle:4.9.0'
 
 }
