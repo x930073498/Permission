@@ -4,9 +4,10 @@
     >
 
     <application>
-        <activity
-            android:name=".ShadowPermissionActivity"
-            android:launchMode="singleTop" />
+        <provider
+            android:name=".PermissionCheckerProvider"
+            android:authorities="com.x930073498.permission.PermissionCheckerProvider"
+            android:exported="false" />
     </application>
 
 </manifest>

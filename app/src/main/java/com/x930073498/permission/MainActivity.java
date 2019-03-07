@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.x930073498.R;
+import com.yj.common.utils.ActivityStackManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PermissionCheckSDK.init(getApplication());
         setContentView(R.layout.activity_main);
+        ActivityStackManager.getTopActivity();
     }
 
 
