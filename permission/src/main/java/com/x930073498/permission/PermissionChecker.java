@@ -60,14 +60,14 @@ public class PermissionChecker {
         PermissionFragment permissionFragment;
         if (fragment == null) {
             permissionFragment = new PermissionFragment();
-            manager.beginTransaction().add(permissionFragment, TAG).commitNow();
+            manager.beginTransaction().add(permissionFragment, TAG).commitNowAllowingStateLoss();
         } else {
             if (fragment instanceof PermissionFragment) {
                 permissionFragment = (PermissionFragment) fragment;
             } else {
                 TAG = String.valueOf(System.currentTimeMillis());
                 permissionFragment = new PermissionFragment();
-                manager.beginTransaction().add(permissionFragment, TAG).commitNow();
+                manager.beginTransaction().add(permissionFragment, TAG).commitNowAllowingStateLoss();
             }
         }
         return permissionFragment;
